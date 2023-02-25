@@ -1,0 +1,65 @@
+main {
+  height: 100vh;
+  display: flex;
+  background-color: #242423;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, sans-serif;
+  color: white;
+}
+
+a {
+  color: #fd6a02;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: url("justin-guitar-singup.jpg");
+  background-size: cover;
+  font-family: 'Handlee', cursive;
+  font-size: 1.2rem;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.logo, .info-header {
+  margin: 2rem 0 0;
+  align-self: center;
+}
+
+.subheader {
+  margin: 1rem auto;
+  width: 75%;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.subheader > p {
+  margin-bottom: 0.5rem;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+}
+
+.features > ul > li {
+  line-height: 2rem;
+}
+
+.credits {
+  margin: 1rem;
+  align-self: end;
+  font-size: 1rem;
+}
