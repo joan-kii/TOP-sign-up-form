@@ -55,57 +55,88 @@
       </div>
     </section>
 
-    <section class="signup-form">
-      <form action="/">   
-        <header>
-          REGISTER
-        </header>
-
-        <fieldset class="first-name">
-          <label for="name">First Name</label>
-          <input type="text" id="name" name="name" autofocus>
+    <section class="signup-section">
+      <form action="/" class="signup-form">   
+        <fieldset>
+          <legend>
+            REGISTER
+          </legend>
+          <ul>
+    
+            <li>
+              <label for="name">First Name</label>
+              <input type="text" id="name" name="name" autofocus required>
+            </li>
+    
+            <li>
+              <label for="last">Last Name</label>
+              <input type="text" id="last" name="last-name" required>
+            </li>
+    
+            <li>
+              <label for="email-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">Email</label>
+              <input type="email" id="email-input" name="email" required>
+            </li>
+    
+            <li>
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" required>
+            </li>
+            
+            <li>
+              <label for="password" class="password">Password<span id="pwd-error-message">Passwords don't match</span></label>
+              <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            </li>
+    
+            <li>
+              <label for="confirm-password" class="password">Confirm Password<span id="conf-error-message">Passwords don't match</span></label>
+              <input type="password" id="confirm-password" name="confirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            </li>
+    
+            <li class="legal">
+              <input type="checkbox" name="terms" id="terms">
+              <label for="terms">I consent to JustinGuitar's <a href="https://www.justinguitar.com/" required> Terms & Conditions.</a></label>
+            </li>
+    
+            <li class="newsletter">
+              <input type="checkbox" name="newsletter" id="newsletter">
+              <label for="newsletter">I want to receive Justin's monthly newsletter.</label>
+            </li>
+            <li>
+              <button class="submit-btn" type="submit">Create My Account</button>
+            </li>
+          </ul>
         </fieldset>
-
-        <fieldset class="last-name">
-          <label for="last">Last Name</label>
-          <input type="text" id="last" name="last-name">
-        </fieldset>
-
-        <fieldset class="email-field">
-          <label for="email-input">Email</label>
-          <input type="email" id="email-input" name="email">
-        </fieldset>
-
-        <fieldset class="username">
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username">
-        </fieldset>
-        
-        <fieldset class="password">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password">
-        </fieldset>
-
-        <fieldset class="confirm-password">
-          <label for="confirm-password">Confirm Password</label>
-          <input type="password" id="confirm-password" name="confirm">
-        </fieldset>
-
-        <fieldset class="legal">
-          <input type="checkbox" name="terms" id="terms">
-          <p>I consent to JustinGuitar's <a href="https://www.justinguitar.com/">Terms & Conditions.</a></p>
-        </fieldset>
-
-        <fieldset class="newsletter">
-          <input type="checkbox" name="newsletter" id="newsletter">
-          <p>I want to receive Justin's monthly newsletter.</p>
-        </fieldset>
-
-        <button class="submit-btn" type="submit">Create My Account</button>
+        <p class="login">Already have an account <a href="https://www.justinguitar.com/">Log in</a></p>
       </form>
-
-      <p class="login">Already have an account <a href="https://www.justinguitar.com/">Log in</a></p>
     </section>
   </main>
 </body>
+<script type="text/javascript">
+
+  let pwd = document.getElementById('password');
+  let conf_pwd = document.getElementById('confirm-password')
+
+  let pwd_msg = document.getElementById('pwd-error-message');
+  let conf_pwd_msg = document.getElementById('conf-error-message');
+
+  let match = function() {
+    if (pwd.value === conf_pwd.value) {
+      pwd.classList.remove('error');
+      conf_pwd.classList.remove('error');
+
+      pwd_msg.style.display ='none';
+      conf_pwd_msg.style.display ='none';
+    } else if (pwd.value.length > 1) {
+      pwd.classList.add('error');
+      conf_pwd.classList.add('error');
+
+      pwd_msg.style.display ='block';
+      conf_pwd_msg.style.display ='block';
+    }
+  };
+
+  conf_pwd.addEventListener('blur', match);
+
+</script>
 </html>
